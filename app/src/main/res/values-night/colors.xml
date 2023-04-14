@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#f0fdf4</color>
+    <color name="primary_variant">#12a745</color>
+    <color name="on_primary">#101914</color>
+    <color name="progressbar_track_tint">#283d30</color>
+</resources>

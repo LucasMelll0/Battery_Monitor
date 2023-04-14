@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#46e27b</color>
+    <color name="primary_variant">#12a745</color>
+    <color name="on_primary">#f0fdf4</color>
+    <color name="sunset_orange">#ff4747</color>
+    <color name="goldenrod">#ffd270</color>
+    <color name="progressbar_track_tint">#dcfce6</color>
 </resources>

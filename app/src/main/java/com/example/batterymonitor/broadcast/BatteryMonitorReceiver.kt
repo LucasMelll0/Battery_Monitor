@@ -5,11 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.BatteryManager
 import android.util.Log
-import com.example.batterymonitor.other.ChargingStatus
 
 class BatteryMonitorReceiver(
     var whenPercentChange: (percent: Int) -> Unit = {},
-    var whenChargingStatusChange: (chargingStatus: ChargingStatus) -> Unit = {}
+    var whenChargingStatusChange: (isCharging: Boolean) -> Unit = {}
 ) :
     BroadcastReceiver() {
 
@@ -30,7 +29,7 @@ class BatteryMonitorReceiver(
                         level * 100 / scale
                     }
                     whenPercentChange(batteryPercent)
-                    whenChargingStatusChange(if (isCharging) ChargingStatus.CHARGING else ChargingStatus.DISCONNECTED)
+                    whenChargingStatusChange(isCharging)
                     Log.d(TAG, "isCharging: $isCharging \n")
                     Log.d(TAG, "battery status: $batteryPercent")
                 }

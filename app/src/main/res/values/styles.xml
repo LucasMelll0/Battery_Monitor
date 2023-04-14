@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="DefaultTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/primary</item>
     </style>
     <style name="BigTextView" parent="DefaultTextView">
         <item name="android:textSize">56sp</item>
