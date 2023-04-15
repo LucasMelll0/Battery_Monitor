@@ -57,8 +57,10 @@ class MainActivity : AppCompatActivity() {
             binding.textviewChargingStatus.text = getString(it.status())
             if (it == ChargingStatus.CHARGING) {
                 binding.imageviewBatteryIcon.visibility = View.GONE
+                binding.animationViewCharging?.visibility = View.VISIBLE
             } else {
                 binding.imageviewBatteryIcon.visibility = View.VISIBLE
+                binding.animationViewCharging?.visibility = View.INVISIBLE
             }
         }
         viewModel.batteryIcon.observe(this@MainActivity) {
