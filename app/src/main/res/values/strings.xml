@@ -1,7 +1,23 @@
 <resources>
     <string name="app_name">Battery Monitor</string>
     <string name="battery_percent_place_holder">%d%%</string>
+    <string name="battery_temperature_place_holder">%sºC</string>
+    <string name="battery_voltage_place_holder">%sV</string>
     <string name="common_charged">charged</string>
     <string name="common_charging">charging</string>
     <string name="common_disconnected">disconnected</string>
+    <string name="activity_main_button_battery_details">Battery Details</string>
+    <string name="common_cold">Cold</string>
+    <string name="common_dead">Dead</string>
+    <string name="common_good">Good</string>
+    <string name="common_overheat">Overheat</string>
+    <string name="common_over_voltage">Over Voltage</string>
+    <string name="common_unknown">Unknown</string>
+    <string name="common_unspecified_failure">Unspecified Failure</string>
+
+    <!-- BottomSheet Battery Details -->
+    <string name="bottom_sheet_battery_technology_title">Technology:</string>
+    <string name="bottom_sheet_battery_health_title">Health:</string>
+    <string name="bottom_sheet_battery_temperature_title">Temperature:</string>
+    <string name="bottom_sheet_battery_voltage_title">Voltage:</string>
 </resources>

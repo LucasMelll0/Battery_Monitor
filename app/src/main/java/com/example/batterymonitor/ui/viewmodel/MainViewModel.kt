@@ -3,6 +3,7 @@ package com.example.batterymonitor.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.batterymonitor.other.BatteryHealth
 import com.example.batterymonitor.other.BatteryIcon
 import com.example.batterymonitor.other.ChargingStatus
 
@@ -16,6 +17,34 @@ class MainViewModel : ViewModel() {
 
     private val _batteryIcon = MutableLiveData(BatteryIcon.FULL)
     internal val batteryIcon: LiveData<BatteryIcon> = _batteryIcon
+
+    private val _batteryTechnology = MutableLiveData("")
+    internal var batteryTechnology: LiveData<String> = _batteryTechnology
+
+    private val _batteryHealth = MutableLiveData(BatteryHealth.UNKNOWN)
+    internal val batteryHealth: LiveData<BatteryHealth> = _batteryHealth
+
+    private val _batteryTemperature = MutableLiveData("")
+    internal val batteryTemperature: LiveData<String> = _batteryTemperature
+
+    private val _batteryVoltage = MutableLiveData("")
+    internal val batteryVoltage: LiveData<String> = _batteryVoltage
+
+    fun setTechnology(technology: String) {
+        _batteryTechnology.postValue(technology)
+    }
+
+    fun setHealth(health: BatteryHealth) {
+        _batteryHealth.postValue(health)
+    }
+
+    fun setTemperature(temperature: String) {
+        _batteryTemperature.postValue(temperature)
+    }
+
+    fun setVoltage(voltage: String) {
+        _batteryVoltage.postValue(voltage)
+    }
 
     fun setBatteryPercent(percent: Int) {
         if (_batteryPercent.value != percent) {

@@ -4,7 +4,7 @@
         <shape android:shape="ring"
             android:thicknessRatio="16"
             android:useLevel="false">
-            <solid android:color="@color/progressbar_track_tint"/>
+            <solid android:color="@color/primary_variant"/>
         </shape>
     </item>
     <item>

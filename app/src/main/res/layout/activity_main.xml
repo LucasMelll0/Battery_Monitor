@@ -10,15 +10,10 @@
 
     <ProgressBar
         android:id="@+id/progressbar_battery_level"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:indeterminateOnly="false"
-        tools:progress="30"
-        android:max="100"
-        android:min="0"
-        android:progressDrawable="@drawable/progress_bar_battery_level"
+        style="@style/BatteryLevelProgressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/default_margin"
         app:layout_constraintTop_toTopOf="@id/_guideline_top"
         app:layout_constraintBottom_toTopOf="@id/_guideline_bottom"/>
     <androidx.constraintlayout.widget.Guideline
@@ -62,5 +57,11 @@
         app:layout_constraintStart_toEndOf="@id/textview_charging_status"
         app:srcCompat="@drawable/ic_battery_low"
         />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_battery_details"
+        style="@style/BatteryDetailsButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

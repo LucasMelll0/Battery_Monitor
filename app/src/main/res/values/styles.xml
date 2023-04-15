@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="DefaultTextView" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/primary</item>
     </style>
     <style name="BigTextView" parent="DefaultTextView">
-        <item name="android:textSize">56sp</item>
+        <item name="android:textSize">@dimen/big_text_size</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BatteryLevelProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:max">100</item>
+        <item name="android:min">0</item>
+        <item name="android:progressDrawable">@drawable/progress_bar_battery_level</item>
+    </style>
+    <style name="BatteryDetailsButton" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/default_button_height</item>
+        <item name="android:text">@string/activity_main_button_battery_details</item>
+        <item name="android:textColor">@color/primary_variant</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:layout_margin">@dimen/default_margin</item>
+    </style>
+    <style name="DefaultShapeableImageView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="cornerSizeTopRight">50%</item>
+        <item name="cornerSizeBottomLeft">50%</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="android:background">@color/primary_variant</item>
+    </style>
+    <style name="DragHandler">
+        <item name="android:layout_width">@dimen/bottom_sheet_drag_handle_width</item>
+        <item name="android:layout_height">@dimen/bottom_sheet_drag_handle_height</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent</item>
     </style>
 </resources>

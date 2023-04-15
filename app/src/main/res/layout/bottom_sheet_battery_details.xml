@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background">
+
+    <View
+        android:id="@+id/_drag_handler"
+        style="@style/DragHandler"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@drawable/rounded_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/_battery_technology_icon"
+        style="@style/DefaultShapeableImageView"
+        android:layout_margin="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/_drag_handler"
+        app:shapeAppearanceOverlay="@style/DefaultShapeableImageView"
+        app:srcCompat="@drawable/ic_battery_full" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/_battery_technology_title"
+        style="@style/DefaultTextView"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/bottom_sheet_battery_technology_title"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_technology_icon"
+        app:layout_constraintStart_toEndOf="@id/_battery_technology_icon"
+        app:layout_constraintTop_toTopOf="@id/_battery_technology_icon" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_battery_technology_bottom_sheet"
+        style="@style/DefaultTextView"
+        android:layout_marginStart="@dimen/small_margin"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_technology_title"
+        app:layout_constraintStart_toEndOf="@id/_battery_technology_title"
+        app:layout_constraintTop_toTopOf="@id/_battery_technology_title"
+        tools:text="Litio" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/_battery_health_icon"
+        style="@style/DefaultShapeableImageView"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="@id/_battery_technology_icon"
+        app:layout_constraintTop_toBottomOf="@id/_battery_technology_icon"
+        app:shapeAppearanceOverlay="@style/DefaultShapeableImageView"
+        app:srcCompat="@drawable/ic_health" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/_battery_health_title"
+        style="@style/DefaultTextView"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/bottom_sheet_battery_health_title"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_health_icon"
+        app:layout_constraintStart_toEndOf="@id/_battery_health_icon"
+        app:layout_constraintTop_toTopOf="@id/_battery_health_icon" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_battery_health_bottom_sheet"
+        style="@style/DefaultTextView"
+        android:layout_marginStart="@dimen/small_margin"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_health_title"
+        app:layout_constraintStart_toEndOf="@id/_battery_health_title"
+        app:layout_constraintTop_toTopOf="@id/_battery_health_title"
+        tools:text="Good" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/_battery_temperature_icon"
+        style="@style/DefaultShapeableImageView"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintStart_toStartOf="@id/_battery_health_icon"
+        app:layout_constraintTop_toBottomOf="@id/_battery_health_icon"
+        app:shapeAppearanceOverlay="@style/DefaultShapeableImageView"
+        app:srcCompat="@drawable/ic_temperature" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/_battery_temperature_title"
+        style="@style/DefaultTextView"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/bottom_sheet_battery_temperature_title"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_temperature_icon"
+        app:layout_constraintStart_toEndOf="@id/_battery_temperature_icon"
+        app:layout_constraintTop_toTopOf="@id/_battery_temperature_icon" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_battery_temperature_bottom_sheet"
+        style="@style/DefaultTextView"
+        app:layout_constraintTop_toTopOf="@id/_battery_temperature_title"
+        app:layout_constraintStart_toEndOf="@id/_battery_temperature_title"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_temperature_title"
+        android:layout_marginStart="@dimen/small_margin"
+        tools:text="35ºC"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/_battery_voltage_icon"
+        style="@style/DefaultShapeableImageView"
+        app:shapeAppearanceOverlay="@style/DefaultShapeableImageView"
+        app:srcCompat="@drawable/ic_voltage"
+        app:layout_constraintStart_toStartOf="@id/_battery_temperature_icon"
+        app:layout_constraintTop_toBottomOf="@id/_battery_temperature_icon"
+        android:layout_marginVertical="@dimen/default_margin"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/_battery_voltage_title"
+        style="@style/DefaultTextView"
+        app:layout_constraintStart_toEndOf="@id/_battery_voltage_icon"
+        app:layout_constraintTop_toTopOf="@id/_battery_voltage_icon"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_voltage_icon"
+        android:text="@string/bottom_sheet_battery_voltage_title"
+        android:layout_marginStart="@dimen/small_margin"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview_battery_voltage_bottom_sheet"
+        style="@style/DefaultTextView"
+        app:layout_constraintStart_toEndOf="@id/_battery_voltage_title"
+        app:layout_constraintTop_toTopOf="@id/_battery_voltage_title"
+        app:layout_constraintBottom_toBottomOf="@id/_battery_voltage_title"
+        tools:text="3.7V"
+        android:layout_marginStart="@dimen/small_margin"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
