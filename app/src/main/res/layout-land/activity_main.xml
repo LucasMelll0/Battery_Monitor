@@ -48,15 +48,6 @@
         app:layout_constraintStart_toStartOf="@id/textview_battery_percent"
         app:layout_constraintEnd_toEndOf="@id/textview_battery_percent"
         tools:text="Charging"/>
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageview_battery_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/textview_charging_status"
-        app:layout_constraintBottom_toBottomOf="@id/textview_charging_status"
-        app:layout_constraintStart_toEndOf="@id/textview_charging_status"
-        app:srcCompat="@drawable/ic_battery_low"
-        />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_battery_details"
         style="@style/BatteryDetailsButton"

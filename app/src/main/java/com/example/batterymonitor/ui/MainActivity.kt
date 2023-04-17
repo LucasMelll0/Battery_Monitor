@@ -5,6 +5,7 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.batterymonitor.R
 import com.example.batterymonitor.broadcast.BatteryMonitorReceiver
@@ -62,14 +63,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updatePercent(percent: Int) {
+        Log.d("Tests", "updatePercent: Entrou")
         binding.textviewBatteryPercent.text =
             getString(R.string.battery_percent_place_holder, percent)
-        binding.progressbarBatteryLevel.progressDrawable = when (percent) {
+        val progressBar = binding.progressbarBatteryLevel
+        updateProgressBar(progressBar, percent)
+    }
+
+    private fun updateProgressBar(progressBar: ProgressBar, percent: Int) {
+        val bounds = progressBar.progressDrawable.bounds
+        progressBar.progressDrawable = when (percent) {
+            in 35..100 -> findDrawable(R.drawable.progress_bar_battery_level_default)
             in 25..35 -> findDrawable(R.drawable.progress_bar_battery_level_medium)
-            in 0..24 -> findDrawable(R.drawable.progress_bar_battery_level_low)
+            in 0..34 -> findDrawable(R.drawable.progress_bar_battery_level_low)
             else -> findDrawable(R.drawable.progress_bar_battery_level_default)
         }
-        binding.progressbarBatteryLevel.progress = percent
+        progressBar.progressDrawable.bounds = bounds
+        progressBar.progress = percent
     }
 
     private fun setsUpBatteryMonitorReceiver() {
@@ -79,12 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
         monitorReceiver.whenBatteryUpdate = {
             Log.d("Tests", "setsUpBatteryMonitorReceiver: $it")
-            viewModel.setBatteryPercent(it.percent)
-            viewModel.setChargingStatus(it.isCharging)
-            viewModel.setHealth(it.health)
-            viewModel.setTechnology(it.technology ?: getString(R.string.common_unknown))
-            viewModel.setTemperature(it.temperature)
-            viewModel.setVoltage(it.voltage)
+            viewModel.setBatteryInfo(it)
         }
         registerReceiver(monitorReceiver, filter)
     }
