@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
 import com.example.batterymonitor.R
 import com.example.batterymonitor.broadcast.BatteryMonitorReceiver
 import com.example.batterymonitor.databinding.ActivityMainBinding
+import com.example.batterymonitor.extensions.findDrawable
 import com.example.batterymonitor.other.ChargingStatus
 import com.example.batterymonitor.ui.bottomsheet.BatteryDetailsBottomSheet
 import com.example.batterymonitor.ui.viewmodel.MainViewModel
@@ -49,28 +49,27 @@ class MainActivity : AppCompatActivity() {
 
     private fun setsUpObservers() {
         viewModel.batteryPercent.observe(this@MainActivity) {
-            binding.textviewBatteryPercent.text =
-                getString(R.string.battery_percent_place_holder, it)
-            binding.progressbarBatteryLevel.progress = it
+            updatePercent(it)
         }
         viewModel.chargingStatus.observe(this@MainActivity) {
             binding.textviewChargingStatus.text = getString(it.status())
             if (it == ChargingStatus.CHARGING) {
-                binding.imageviewBatteryIcon.visibility = View.GONE
                 binding.animationViewCharging?.visibility = View.VISIBLE
             } else {
-                binding.imageviewBatteryIcon.visibility = View.VISIBLE
                 binding.animationViewCharging?.visibility = View.INVISIBLE
             }
         }
-        viewModel.batteryIcon.observe(this@MainActivity) {
-            binding.imageviewBatteryIcon.setImageDrawable(
-                AppCompatResources.getDrawable(
-                    this,
-                    it.status()
-                )
-            )
+    }
+
+    private fun updatePercent(percent: Int) {
+        binding.textviewBatteryPercent.text =
+            getString(R.string.battery_percent_place_holder, percent)
+        binding.progressbarBatteryLevel.progressDrawable = when (percent) {
+            in 25..35 -> findDrawable(R.drawable.progress_bar_battery_level_medium)
+            in 0..24 -> findDrawable(R.drawable.progress_bar_battery_level_low)
+            else -> findDrawable(R.drawable.progress_bar_battery_level_default)
         }
+        binding.progressbarBatteryLevel.progress = percent
     }
 
     private fun setsUpBatteryMonitorReceiver() {

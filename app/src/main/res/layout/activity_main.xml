@@ -21,24 +21,24 @@
         android:id="@+id/_guideline_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintGuide_percent="0.31"
+        app:layout_constraintGuide_percent="0.29"
         android:orientation="horizontal"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/_guideline_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.69"/>
+        app:layout_constraintGuide_percent="0.67"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textview_battery_percent"
         style="@style/BigTextView"
         tools:text="10%"
         app:layout_constraintVertical_bias="0.47"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/_guideline_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/_guideline_bottom"
         />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -49,23 +49,15 @@
         app:layout_constraintStart_toStartOf="@id/textview_battery_percent"
         app:layout_constraintEnd_toEndOf="@id/textview_battery_percent"
         tools:text="Charging"/>
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageview_battery_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/textview_charging_status"
-        app:layout_constraintBottom_toBottomOf="@id/textview_charging_status"
-        app:layout_constraintStart_toEndOf="@id/textview_charging_status"
-        app:srcCompat="@drawable/ic_battery_low"
-        />
     <com.airbnb.lottie.LottieAnimationView
+        android:paddingTop="@dimen/default_margin"
         android:id="@+id/animation_view_charging"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressbar_battery_level"
-        app:layout_constraintBottom_toTopOf="@id/button_battery_details"
+        app:layout_constraintTop_toBottomOf="@id/_guideline_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:lottie_rawRes="@raw/circle_charging_animation"
         android:visibility="invisible"
         app:lottie_autoPlay="true"

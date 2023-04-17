@@ -16,7 +16,7 @@
         tools:progress="30"
         android:max="100"
         android:min="0"
-        android:progressDrawable="@drawable/progress_bar_battery_level"
+        android:progressDrawable="@drawable/progress_bar_battery_level_default"
         app:layout_constraintStart_toEndOf="@id/_guideline_middle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

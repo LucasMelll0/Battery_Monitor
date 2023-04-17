@@ -59,7 +59,6 @@ class BatteryMonitorReceiver(
                         )
                     )
                     Log.d(TAG, "isCharging: $isCharging \n")
-                    Log.d(TAG, "battery status: $percent")
                 }
                 else -> Unit
             }

@@ -17,7 +17,7 @@
         <item name="android:indeterminateOnly">false</item>
         <item name="android:max">100</item>
         <item name="android:min">0</item>
-        <item name="android:progressDrawable">@drawable/progress_bar_battery_level</item>
+        <item name="android:progressDrawable">@drawable/progress_bar_battery_level_default</item>
     </style>
     <style name="BatteryDetailsButton" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
         <item name="android:layout_width">match_parent</item>
