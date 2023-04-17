@@ -35,7 +35,7 @@ class MainViewModel : ViewModel() {
         _batteryPercent.postValue(battery.percent)
         setChargingStatus(battery.isCharging)
     }
-    fun setChargingStatus(isCharging: Boolean) {
+    private fun setChargingStatus(isCharging: Boolean) {
         if (_batteryPercent.value == 100) {
             _chargingStatus.postValue(ChargingStatus.CHARGED)
         } else {
