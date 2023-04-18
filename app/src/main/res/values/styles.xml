@@ -43,4 +43,12 @@
     <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/transparent</item>
     </style>
+    <style name="WarningTextView" parent="DefaultTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/on_primary</item>
+        <item name="android:background">@color/primary</item>
+        <item name="android:text">@string/activity_main_power_save_enabled_warning</item>
+        <item name="android:visibility">gone</item>
+    </style>
 </resources>

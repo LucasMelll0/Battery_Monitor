@@ -1,10 +1,14 @@
 package com.example.batterymonitor.ui
 
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.os.PowerManager
+import android.os.PowerManager.ACTION_POWER_SAVE_MODE_CHANGED
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.batterymonitor.R
@@ -63,7 +67,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updatePercent(percent: Int) {
-        Log.d("Tests", "updatePercent: Entrou")
         binding.textviewBatteryPercent.text =
             getString(R.string.battery_percent_place_holder, percent)
         val progressBar = binding.progressbarBatteryLevel
@@ -83,15 +86,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setsUpBatteryMonitorReceiver() {
+        togglePowerSaveModeWarningVisibility(
+            (getSystemService(Context.POWER_SERVICE) as PowerManager).isPowerSaveMode
+        )
         val filter = IntentFilter(Intent.ACTION_POWER_CONNECTED).apply {
             addAction(Intent.ACTION_POWER_DISCONNECTED)
             addAction(Intent.ACTION_BATTERY_CHANGED)
+            addAction(ACTION_POWER_SAVE_MODE_CHANGED)
         }
         monitorReceiver.whenBatteryUpdate = {
             Log.d("Tests", "setsUpBatteryMonitorReceiver: $it")
             viewModel.setBatteryInfo(it)
         }
+        monitorReceiver.whenPowerSaveModeChanged = {
+            togglePowerSaveModeWarningVisibility(it)
+        }
         registerReceiver(monitorReceiver, filter)
+    }
+
+    private fun togglePowerSaveModeWarningVisibility(enabled: Boolean) {
+        val textViewPowerSaveWarning = binding.textviewWarning
+        if (enabled && textViewPowerSaveWarning?.visibility != View.VISIBLE) {
+            val enterAnim = AnimationUtils.loadAnimation(this, R.anim.enter_from_top)
+            textViewPowerSaveWarning?.startAnimation(enterAnim)
+        }else {
+            val exitAnim = AnimationUtils.loadAnimation(this, R.anim.exit_to_top)
+            textViewPowerSaveWarning?.startAnimation(exitAnim)
+        }
+        textViewPowerSaveWarning?.visibility = if (enabled) View.VISIBLE else View.GONE
     }
 
     override fun onDestroy() {

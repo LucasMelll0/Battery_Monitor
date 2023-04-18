@@ -20,4 +20,5 @@
     <string name="bottom_sheet_battery_health_title">Health:</string>
     <string name="bottom_sheet_battery_temperature_title">Temperature:</string>
     <string name="bottom_sheet_battery_voltage_title">Voltage:</string>
+    <string name="activity_main_power_save_enabled_warning">Power Saving Mode On</string>
 </resources>
