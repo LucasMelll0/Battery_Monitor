@@ -8,15 +8,15 @@
     android:backgroundTint="@color/on_primary"
     android:layout_margin="@dimen/small_margin">
     <TextView
-        android:id="@+id/textview_battery_percent_widget"
-        style="@style/BigTextView"
-        tools:text="86%"
+        style="@style/WidgetTitleTextView"
+        android:text="@string/widget_title"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/default_margin"/>
+        android:layout_marginTop="@dimen/default_margin"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="start"
+        android:layout_marginTop="@dimen/default_margin">
         <ImageView
             android:contentDescription="@string/bottom_sheet_battery_temperature_title"
             style="@style/DefaultShapeableImageView"
@@ -36,7 +36,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="start"
+        >
+        <ImageView
+            android:contentDescription="@string/bottom_sheet_battery_voltage_title"
+            style="@style/DefaultShapeableImageView"
+            android:backgroundTint="@color/on_primary"
+            android:src="@drawable/ic_voltage"
+            android:layout_marginStart="@dimen/default_margin"/>
+        <TextView
+            style="@style/DefaultTextView"
+            android:text="@string/bottom_sheet_battery_voltage_title"/>
+        <TextView
+            android:id="@+id/textview_battery_voltage_widget"
+            style="@style/DefaultTextView"
+            tools:text="4.0V"
+            android:layout_marginStart="@dimen/small_margin"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
         android:layout_marginBottom="@dimen/default_margin">
         <ImageView
             android:contentDescription="@string/bottom_sheet_battery_temperature_title"

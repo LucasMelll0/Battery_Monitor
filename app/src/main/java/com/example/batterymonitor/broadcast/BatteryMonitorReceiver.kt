@@ -61,12 +61,10 @@ class BatteryMonitorReceiver(
         }
     }
     private fun updateWidget(context: Context, batteryStatus: Intent) {
-        val percent = batteryStatus.let {
-            val level = it.getIntExtra(EXTRA_LEVEL, -1)
-            val scale = it.getIntExtra(EXTRA_SCALE, -1)
-            level * 100 / scale
+        val voltage = batteryStatus.getIntExtra(EXTRA_VOLTAGE, -1).let {
+            String.format("%.1f", (it.toFloat() / 1000))
         }.let {
-            context.getString(R.string.battery_percent_place_holder, it)
+            context.getString(R.string.battery_voltage_place_holder, it)
         }
         val temperature = batteryStatus.getIntExtra(EXTRA_TEMPERATURE, -1).let {
             String.format("%.1f", (it.toFloat() / 10))
@@ -95,7 +93,7 @@ class BatteryMonitorReceiver(
         )
         val views = RemoteViews(context.packageName, R.layout.battery_widget)
         views.apply {
-            setTextViewText(R.id.textview_battery_percent_widget, percent)
+            setTextViewText(R.id.textview_battery_voltage_widget, voltage)
             setTextViewText(R.id.textview_battery_temperature_widget, temperature)
             setTextViewText(R.id.textview_battery_health_widget, health)
         }

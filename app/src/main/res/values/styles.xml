@@ -8,6 +8,10 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/primary</item>
     </style>
+    <style name="WidgetTitleTextView" parent="DefaultTextView">
+        <item name="android:textSize">@dimen/medium_text_view</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
     <style name="BigTextView" parent="DefaultTextView">
         <item name="android:textSize">@dimen/big_text_size</item>
