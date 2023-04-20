@@ -21,4 +21,8 @@
     <string name="bottom_sheet_battery_temperature_title">Temperature:</string>
     <string name="bottom_sheet_battery_voltage_title">Voltage:</string>
     <string name="activity_main_power_save_enabled_warning">Power Saving Mode On</string>
+    <string name="common_loading">loading</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>
