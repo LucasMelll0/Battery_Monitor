@@ -6,7 +6,7 @@
     <dimen name="medium_text_view">24sp</dimen>
     <dimen name="default_text_size">20sp</dimen>
     <dimen name="small_text_size">18sp</dimen>
-    <dimen name="bottom_sheet_drag_handle_height">10dp</dimen>
+    <dimen name="bottom_sheet_drag_handle_height">6dp</dimen>
     <dimen name="bottom_sheet_drag_handle_width">40dp</dimen>
     <dimen name="default_radius">16dp</dimen>
     <dimen name="small_margin">8dp</dimen>

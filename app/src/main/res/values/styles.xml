@@ -29,10 +29,11 @@
 
     <style name="BatteryDetailsButton" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/default_button_height</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:text">@string/activity_main_button_battery_details</item>
         <item name="android:textColor">@color/primary_variant</item>
         <item name="backgroundTint">@color/primary</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
         <item name="android:layout_margin">@dimen/default_margin</item>
     </style>
 
@@ -59,7 +60,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/small_text_size</item>
         <item name="android:textColor">@color/on_primary</item>
-        <item name="android:background">@color/primary</item>
+        <item name="android:background">@drawable/rounded_bottom_background</item>
         <item name="android:text">@string/activity_main_power_save_enabled_warning</item>
         <item name="android:visibility">gone</item>
     </style>
