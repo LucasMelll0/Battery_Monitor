@@ -64,7 +64,7 @@ Bottomsheet com informações da tecnologia, saúde, temperatura e voltagem atua
 Widget com informações sobre temperatura, voltagem e saúde da bateria.
 
 ## Animação ao carregar a bateria
-<img src="media/animation.gif" width="60%"/>
+<img src="media/animation.gif" width="80%"/>
 
 
 
