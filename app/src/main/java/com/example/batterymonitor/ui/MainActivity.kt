@@ -106,14 +106,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun togglePowerSaveModeWarningVisibility(enabled: Boolean) {
         val textViewPowerSaveWarning = binding.textviewWarning
-        if (enabled && textViewPowerSaveWarning?.visibility != View.VISIBLE) {
+        if (enabled && textViewPowerSaveWarning.visibility != View.VISIBLE) {
             val enterAnim = AnimationUtils.loadAnimation(this, R.anim.enter_from_top)
-            textViewPowerSaveWarning?.startAnimation(enterAnim)
+            textViewPowerSaveWarning.startAnimation(enterAnim)
         }else {
             val exitAnim = AnimationUtils.loadAnimation(this, R.anim.exit_to_top)
-            textViewPowerSaveWarning?.startAnimation(exitAnim)
+            textViewPowerSaveWarning.startAnimation(exitAnim)
         }
-        textViewPowerSaveWarning?.visibility = if (enabled) View.VISIBLE else View.GONE
+        textViewPowerSaveWarning.visibility = if (enabled) View.VISIBLE else View.GONE
     }
 
     override fun onDestroy() {
